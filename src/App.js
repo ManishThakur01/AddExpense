@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Tracker from './Components/Tracker';
+import DisplayData from './Components/DispayData';
 import './App.css';
 
 function App() {
+  const [userData, setUserData] = useState([]);
+  
+  const RecieveData = (dataValue) => {
+    console.log(dataValue);
+    setUserData((prevData) => {
+      return [
+        ...prevData,
+        {data : dataValue[0].value, button : dataValue[0].button, time : dataValue[0].time},
+      ];
+    });
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Expense Tracker - Basic</h2>
+      <Tracker onData={RecieveData}/>
+      <DisplayData onData={userData}/>
     </div>
   );
 }

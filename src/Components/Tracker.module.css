@@ -1,0 +1,13 @@
+.tracker {
+    width: 50%;
+    text-align: center;
+    border : 1px solid black;
+    box-sizing : border-box;
+    text-align : center;
+    position: relative;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    margin-bottom: 21px;
+}
